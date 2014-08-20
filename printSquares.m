@@ -1,20 +1,21 @@
 function printSquares(squares, players)
+% Print squares and indices.
     s = squares;
 
-    columnCoordinates1 = mat2str(1:2:columns(squares));
+    columnIndices1 = mat2str(1:2:columns(squares));
     % Add 2 spaces after every number < 10.
-    columnCoordinates1 = regexprep(columnCoordinates1, '(\D\d)\b', '$1  ');
+    columnIndices1 = regexprep(columnIndices1, '(\D\d)\b', '$1  ');
     % Add 1 space after every number >= 10.
-    columnCoordinates1 = regexprep(columnCoordinates1, '(\d\d)\b', '$1 ');
-    columnCoordinates1 = regexprep(columnCoordinates1, '[\[\]]', '')
+    columnIndices1 = regexprep(columnIndices1, '(\d\d)\b', '$1 ');
+    columnIndices1 = regexprep(columnIndices1, '[\[\]]', '');
 
-    columnCoordinates2 = mat2str(2:2:columns(squares));
-    columnCoordinates2 = regexprep(columnCoordinates2, '(\D\d)\b', '$1  ');
-    columnCoordinates2 = regexprep(columnCoordinates2, '(\d\d)\b', '$1 ');
-    columnCoordinates2 = regexprep(columnCoordinates2, '[\[\]]', '')
+    columnIndices2 = mat2str(2:2:columns(squares));
+    columnIndices2 = regexprep(columnIndices2, '(\D\d)\b', '$1  ');
+    columnIndices2 = regexprep(columnIndices2, '(\d\d)\b', '$1 ');
+    columnIndices2 = regexprep(columnIndices2, '[\[\]]', '');
 
-    rowCoordinates = num2str((1:rows(s))');
-    rowCoordinates(:, end + 1) = ' ';
+    rowIndices = num2str((1:rows(s))');
+    rowIndices(:, end + 1) = ' ';
 
     % Transform numerical matrix to characters.
     s = s';
@@ -27,12 +28,12 @@ function printSquares(squares, players)
     s(s == 0) = ' ';
     s(end, :) = "\n";
 
-    s = [ rowCoordinates'; s ];
+    s = [ rowIndices'; s ];
 
     spacing = blanks(length(num2str(rows(squares))));
-    printf(' %s%s\n', spacing, columnCoordinates1);
+    printf(' %s%s\n', spacing, columnIndices1);
     printf('%c', s);
     spacing(end) = [];
-    printf('    %s%s\n', spacing, columnCoordinates2);
+    printf('    %s%s\n', spacing, columnIndices2);
     fflush(stdout);
 end

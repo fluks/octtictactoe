@@ -1,4 +1,5 @@
 function [ row, column ] = readMove(squares, char, empty)
+% Read a move from a player.
     while true
         printf('%c', char);
         fflush(stdout);

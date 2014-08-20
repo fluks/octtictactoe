@@ -1,9 +1,7 @@
 function [ squares, nSequenceToWin ] = readSettings(empty)
 % Get number of rows, columns and length of the sequence to win from user.
-% emptyNumber Number for a empty square.
-% Returns: - squares        Game matrix.
-%          - nSequenceToWin Number of elements in sequence to win the game.
     MIN_ROW_AND_COLUMN = 3;
+
     while true
         s = input('Number of rows: ', 's');
         [ rows, count, err ] = sscanf(s, '%i', 'C');
