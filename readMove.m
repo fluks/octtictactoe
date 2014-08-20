@@ -3,9 +3,9 @@ function [ row, column ] = readMove(squares, char, empty)
     while true
         printf('%c', char);
         fflush(stdout);
-        s = input('''s turn. Move to index(e.g. 1,2): ', 's');
-        [ row, column, count, err ] = sscanf(s, '%d,%d', 'C');
-        if count ~= 2 || err ~= ''
+        s = input('''s turn. Move to index(e.g. 1 2): ', 's');
+        [ row, _, column, count, err ] = sscanf(s, '%d%[ ,x.,:-]%d', 'C');
+        if count ~= 3 || err ~= ''
             fprintf(stderr, 'Invalid input.\n');
             continue
         end
