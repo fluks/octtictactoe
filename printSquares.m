@@ -8,7 +8,7 @@ function printSquares(squares, players)
     columnCoordinates1 = regexprep(columnCoordinates1, '(\d\d)\b', '$1 ');
     columnCoordinates1 = regexprep(columnCoordinates1, '[\[\]]', '')
 
-    columnCoordinates2 = mat2str(2:2:columns(squares) - 1);
+    columnCoordinates2 = mat2str(2:2:columns(squares));
     columnCoordinates2 = regexprep(columnCoordinates2, '(\D\d)\b', '$1  ');
     columnCoordinates2 = regexprep(columnCoordinates2, '(\d\d)\b', '$1 ');
     columnCoordinates2 = regexprep(columnCoordinates2, '[\[\]]', '')
