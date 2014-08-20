@@ -1,0 +1,10 @@
+Requirements
+
+Octave. I can't test on Matlab. I think I used some features not found in
+Matlab.
+
+Usage
+
+cd to the directory where the *.m files are, in Octave. Then call:
+
+ tictactoe
